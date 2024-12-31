@@ -1,0 +1,267 @@
+<html><head><base href="https://qami.science">
+<title>QAMI Science - Quantum Reality Playground</title>
+<style>
+body {
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.simulation-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.simulation-title {
+  font-size: 1.8em;
+  margin: 20px 0;
+  text-align: center;
+  word-wrap: break-word;
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0;
+}
+
+.simulation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sim-option {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid #0f0;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.sim-option:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.sim-option h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+  color: #0f0;
+}
+
+.sim-description {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  line-height: 1.4;
+  color: #0f0;
+}
+
+.enter-sim {
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 200px;
+  font-weight: bold;
+}
+
+.enter-sim:hover {
+  background-color: #00ff00;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0f0;
+}
+
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.raindrop {
+  position: absolute;
+  color: #0f0;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .simulation-title {
+    font-size: 1.5em;
+    padding: 0 10px;
+  }
+  
+  .simulation-grid {
+    width: 95%;
+    padding: 10px;
+    grid-template-columns: 1fr;
+  }
+  
+  .sim-option {
+    padding: 15px;
+  }
+  
+  .sim-option h3 {
+    font-size: 1.2em;
+  }
+  
+  .sim-description {
+    font-size: 0.85em;
+  }
+  
+  .enter-sim {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}
+
+/* Widescreen Optimization */
+@media (min-width: 1400px) {
+  .simulation-grid {
+    max-width: 1600px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .simulation-title {
+    font-size: 2.2em;
+  }
+  
+  .sim-option h3 {
+    font-size: 1.5em;
+  }
+  
+  .sim-description {
+    font-size: 1em;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="simulation-container">
+  <h1 class="simulation-title">QAMI Science - Quantum Reality Playground</h1>
+  
+  <div class="simulation-grid">
+    <div class="sim-option">
+      <h3>Schrödinger's Web</h3>
+      <p class="sim-description">Explore a website that exists in multiple states simultaneously. Every click reveals a new quantum possibility.</p>
+      <form action="https://qami.science/sim/schrodinger" method="GET">
+        <input type="hidden" name="sim" value="schrodinger">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Quantum Entanglement Chat</h3>
+      <p class="sim-description">Communicate instantaneously across any distance using quantum-entangled particles. Experience non-local information transfer.</p>
+      <form action="https://qami.science/sim/entanglement" method="GET">
+        <input type="hidden" name="sim" value="entanglement">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Multiverse Browser</h3>
+      <p class="sim-description">Navigate through parallel universes. Each tab is a window into a different reality with its own unique history and physics.</p>
+      <form action="https://qami.science/sim/multiverse" method="GET">
+        <input type="hidden" name="sim" value="multiverse">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Quantum Computation Playground</h3>
+      <p class="sim-description">Experiment with quantum algorithms and witness computational tasks that defy classical limits.</p>
+      <form action="https://qami.science/sim/quantum-compute" method="GET">
+        <input type="hidden" name="sim" value="quantum_compute">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Time Dilation Social Network</h3>
+      <p class="sim-description">Experience relativistic effects on communication. Interact with users experiencing different rates of time passage.</p>
+      <form action="https://qami.science/sim/time-dilation" method="GET">
+        <input type="hidden" name="sim" value="time_dilation">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Quantum Encryption Messenger</h3>
+      <p class="sim-description">Send messages secured by the fundamental laws of quantum mechanics. Any eavesdropping attempt alters the message.</p>
+      <form action="https://qami.science/sim/quantum-encrypt" method="GET">
+        <input type="hidden" name="sim" value="quantum_encrypt">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="matrix-rain" id="matrix-rain"></div>
+
+<script>
+const matrixRain = document.getElementById('matrix-rain');
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+
+function createRaindrop() {
+  const raindrop = document.createElement('div');
+  raindrop.className = 'raindrop';
+  raindrop.style.left = `${Math.random() * 100}%`;
+  raindrop.style.animationDuration = `${Math.random() * 5 + 2}s`;
+  raindrop.innerText = characters[Math.floor(Math.random() * characters.length)];
+  matrixRain.appendChild(raindrop);
+  
+  setTimeout(() => {
+    matrixRain.removeChild(raindrop);
+  }, 7000);
+}
+
+setInterval(createRaindrop, 100);
+
+// Add touch event handling for mobile
+document.querySelectorAll('.sim-option').forEach(option => {
+  option.addEventListener('touchstart', () => {
+    option.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
+  });
+  
+  option.addEventListener('touchend', () => {
+    option.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
+  });
+});
+</script>
+
+</body></html>
