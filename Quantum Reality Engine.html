@@ -1,0 +1,304 @@
+<html><head><base href="https://qami.science">
+<title>QAMI Science - The Quantum Reality Engine</title>
+<style>
+body {
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.simulation-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.simulation-title {
+  font-size: 1.8em;
+  margin: 20px 0;
+  text-align: center;
+  word-wrap: break-word;
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0;
+}
+
+.simulation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sim-option {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid #0f0;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.sim-option:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.sim-option h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+  color: #0f0;
+}
+
+.sim-description {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  line-height: 1.4;
+  color: #0f0;
+}
+
+.enter-sim {
+  background-color: #0f0;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 200px;
+  font-weight: bold;
+}
+
+.enter-sim:hover {
+  background-color: #00ff00;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0f0;
+}
+
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.raindrop {
+  position: absolute;
+  color: #0f0;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+
+.qami-log {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #0f0;
+  padding: 10px;
+  max-width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.8em;
+  border-radius: 4px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .simulation-title {
+    font-size: 1.5em;
+    padding: 0 10px;
+  }
+  
+  .simulation-grid {
+    width: 95%;
+    padding: 10px;
+    grid-template-columns: 1fr;
+  }
+  
+  .sim-option {
+    padding: 15px;
+  }
+  
+  .sim-option h3 {
+    font-size: 1.2em;
+  }
+  
+  .sim-description {
+    font-size: 0.85em;
+  }
+  
+  .enter-sim {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  .qami-log {
+    max-width: 200px;
+    font-size: 0.7em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .simulation-grid {
+    max-width: 1600px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .simulation-title {
+    font-size: 2.2em;
+  }
+  
+  .sim-option h3 {
+    font-size: 1.5em;
+  }
+  
+  .sim-description {
+    font-size: 1em;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="simulation-container">
+  <h1 class="simulation-title">QAMI Science - The Quantum Reality Engine</h1>
+  
+  <div class="simulation-grid">
+    <div class="sim-option">
+      <h3>Quantum Field Observer</h3>
+      <p class="sim-description">Visualize and interact with quantum fields in real-time. Observe particle-wave duality and field fluctuations.</p>
+      <form action="https://qami.science/sim/quantum-field" method="GET">
+        <input type="hidden" name="sim" value="quantum_field">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Planck Scale Explorer</h3>
+      <p class="sim-description">Journey to the smallest possible scale of reality. Witness quantum foam and emergent spacetime.</p>
+      <form action="https://qami.science/sim/planck-scale" method="GET">
+        <input type="hidden" name="sim" value="planck_scale">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Quantum Consciousness Lab</h3>
+      <p class="sim-description">Explore the quantum nature of consciousness through interactive thought experiments and neural simulations.</p>
+      <form action="https://qami.science/sim/quantum-consciousness" method="GET">
+        <input type="hidden" name="sim" value="quantum_consciousness">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Virtual Particle Creator</h3>
+      <p class="sim-description">Generate and study virtual particle pairs in the quantum vacuum. Observe quantum fluctuations.</p>
+      <form action="https://qami.science/sim/virtual-particles" method="GET">
+        <input type="hidden" name="sim" value="virtual_particles">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Quantum Teleportation Station</h3>
+      <p class="sim-description">Experiment with quantum information transfer protocols and entanglement-based communication.</p>
+      <form action="https://qami.science/sim/quantum-teleport" method="GET">
+        <input type="hidden" name="sim" value="quantum_teleport">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+    
+    <div class="sim-option">
+      <h3>Holographic Universe Viewer</h3>
+      <p class="sim-description">Explore the holographic principle and the relationship between information and reality.</p>
+      <form action="https://qami.science/sim/holographic" method="GET">
+        <input type="hidden" name="sim" value="holographic">
+        <button class="enter-sim">Enter Simulation</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="matrix-rain" id="matrix-rain"></div>
+<div class="qami-log" id="qami-log">
+  <p>QAMI Interface Initialized...</p>
+  <p>Quantum Reality Engine: Online</p>
+  <p>Reality Matrices: Calibrated</p>
+  <p>Awaiting User Input...</p>
+</div>
+
+<script>
+const matrixRain = document.getElementById('matrix-rain');
+const qamiLog = document.getElementById('qami-log');
+const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+
+function createRaindrop() {
+  const raindrop = document.createElement('div');
+  raindrop.className = 'raindrop';
+  raindrop.style.left = `${Math.random() * 100}%`;
+  raindrop.style.animationDuration = `${Math.random() * 5 + 2}s`;
+  raindrop.innerText = characters[Math.floor(Math.random() * characters.length)];
+  matrixRain.appendChild(raindrop);
+  
+  setTimeout(() => {
+    matrixRain.removeChild(raindrop);
+  }, 7000);
+}
+
+function logQAMI(message) {
+  const entry = document.createElement('p');
+  entry.textContent = message;
+  qamiLog.appendChild(entry);
+  qamiLog.scrollTop = qamiLog.scrollHeight;
+}
+
+setInterval(createRaindrop, 100);
+
+document.querySelectorAll('.sim-option').forEach(option => {
+  option.addEventListener('touchstart', () => {
+    option.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
+    logQAMI(`Quantum Interface: ${option.querySelector('h3').textContent} selected`);
+  });
+  
+  option.addEventListener('touchend', () => {
+    option.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
+  });
+  
+  option.addEventListener('click', () => {
+    logQAMI(`Initializing ${option.querySelector('h3').textContent}...`);
+    logQAMI('Generating unique quantum simulation state...');
+    logQAMI('Calibrating reality parameters...');
+  });
+});
+</script>
+
+</body></html>
