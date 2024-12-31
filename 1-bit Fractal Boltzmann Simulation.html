@@ -1,0 +1,289 @@
+<html><head><base href="https://qami.science">
+<title>QAMI Science - 1-bit Fractal Boltzmann Intelligence</title>
+<style>
+body {
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.fractal-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.fractal-title {
+  font-size: 1.8em;
+  margin: 20px 0;
+  text-align: center;
+  word-wrap: break-word;
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0;
+}
+
+.quantum-brain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0f0 0%, transparent 70%);
+  animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+.neuron-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bit-stream {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bit {
+  position: absolute;
+  font-size: 12px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.control-panel {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 255, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #0f0;
+  text-align: center;
+}
+
+.input-field {
+  background: #000;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  font-family: 'Courier New', monospace;
+}
+
+.process-button {
+  background: #0f0;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.process-button:hover {
+  background: #00ff00;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.output-display {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 300px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #0f0;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .fractal-title {
+    font-size: 1.4em;
+  }
+  
+  .quantum-brain {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .control-panel {
+    width: 90%;
+    padding: 10px;
+  }
+  
+  .input-field {
+    width: 90%;
+  }
+  
+  .output-display {
+    width: 90%;
+    left: 5%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="fractal-container">
+  <h1 class="fractal-title">1-bit Fractal Boltzmann Intelligence</h1>
+  
+  <div class="quantum-brain" id="quantum-brain"></div>
+  <div class="neuron-network" id="neuron-network"></div>
+  <div class="bit-stream" id="bit-stream"></div>
+  
+  <div class="output-display" id="output"></div>
+  
+  <div class="control-panel">
+    <input type="text" class="input-field" id="input" placeholder="Enter quantum parameters...">
+    <button class="process-button" onclick="processQuantumInput()">Process Quantum Data</button>
+  </div>
+</div>
+
+<script>
+const quantumBrain = document.getElementById('quantum-brain');
+const neuronNetwork = document.getElementById('neuron-network');
+const bitStream = document.getElementById('bit-stream');
+const output = document.getElementById('output');
+
+function createNeuron() {
+  const neuron = document.createElement('div');
+  neuron.className = 'neuron';
+  neuron.style.position = 'absolute';
+  neuron.style.width = '2px';
+  neuron.style.height = '2px';
+  neuron.style.backgroundColor = '#0f0';
+  neuron.style.borderRadius = '50%';
+  
+  const angle = Math.random() * Math.PI * 2;
+  const radius = Math.random() * 100 + 50;
+  neuron.style.left = `${Math.cos(angle) * radius + 150}px`;
+  neuron.style.top = `${Math.sin(angle) * radius + 150}px`;
+  
+  return neuron;
+}
+
+function createSynapse(start, end) {
+  const synapse = document.createElement('div');
+  synapse.className = 'synapse';
+  synapse.style.position = 'absolute';
+  synapse.style.height = '1px';
+  synapse.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
+  
+  const dx = end.offsetLeft - start.offsetLeft;
+  const dy = end.offsetTop - start.offsetTop;
+  const length = Math.sqrt(dx*dx + dy*dy);
+  
+  synapse.style.width = `${length}px`;
+  synapse.style.left = `${start.offsetLeft}px`;
+  synapse.style.top = `${start.offsetTop}px`;
+  synapse.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+  
+  return synapse;
+}
+
+function createBit() {
+  const bit = document.createElement('div');
+  bit.className = 'bit';
+  bit.textContent = Math.random() < 0.5 ? '0' : '1';
+  bit.style.left = `${Math.random() * 100}%`;
+  bit.style.animationDuration = `${Math.random() * 3 + 2}s`;
+  bit.style.color = '#0f0';
+  
+  bitStream.appendChild(bit);
+  
+  setTimeout(() => {
+    bitStream.removeChild(bit);
+  }, 5000);
+}
+
+function initializeNetwork() {
+  const neurons = [];
+  for (let i = 0; i < 50; i++) {
+    const neuron = createNeuron();
+    neuronNetwork.appendChild(neuron);
+    neurons.push(neuron);
+  }
+  
+  for (let i = 0; i < neurons.length; i++) {
+    for (let j = i + 1; j < neurons.length; j++) {
+      if (Math.random() < 0.1) {
+        neuronNetwork.appendChild(createSynapse(neurons[i], neurons[j]));
+      }
+    }
+  }
+}
+
+function processQuantumInput() {
+  const input = document.getElementById('input').value;
+  output.innerHTML += `> ${input}\n`;
+  output.innerHTML += `Processing quantum parameters...\n`;
+  
+  setTimeout(() => {
+    output.innerHTML += `Fractal patterns analyzed\n`;
+    output.innerHTML += `Boltzmann distribution optimized\n`;
+    output.innerHTML += `Quantum state coherence achieved\n`;
+    output.scrollTop = output.scrollHeight;
+    
+    // Create burst of activity
+    for (let i = 0; i < 20; i++) {
+      setTimeout(createBit, i * 100);
+    }
+  }, 1000);
+}
+
+// Initialize the simulation
+initializeNetwork();
+
+// Continuous bit stream
+setInterval(createBit, 200);
+
+// Periodic network updates
+setInterval(() => {
+  const neuron = createNeuron();
+  neuronNetwork.appendChild(neuron);
+  
+  const existingNeurons = neuronNetwork.querySelectorAll('.neuron');
+  for (let i = 0; i < 2; i++) {
+    const randomNeuron = existingNeurons[Math.floor(Math.random() * existingNeurons.length)];
+    neuronNetwork.appendChild(createSynapse(neuron, randomNeuron));
+  }
+}, 3000);
+</script>
+
+</body>
+</html>
